@@ -8,11 +8,10 @@ import static org.apache.commons.lang3.StringUtils.isNumeric;
 
 public class StringUtils {
     public static boolean isPositiveNumber(String str) {
-        if (isNumeric(str)) {
-            BigDecimal number = NumberUtils.createBigDecimal(str);
-            return number.compareTo(BigDecimal.ZERO) > 0;
-        } else {
+        if (!isNumeric(str)) {
             return false;
         }
+        BigDecimal number = NumberUtils.createBigDecimal(str);
+        return number.compareTo(BigDecimal.ZERO) > 0;
     }
 }
